@@ -22,7 +22,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "start": "SET NODE_ENV=development budo example/index.js:example/bundle.js --live",
-    "build": "SET NODE_ENV=production && if exist dist rmdir /s /q dist && md dist && browserify -s MapboxDirections src/index.js > dist/mapbox-gl-directions.js && copy src\\mapbox-gl-directions.css dist",
+    "build": "SET NODE_ENV=production && md dist && browserify -s MapboxDirections src/index.js > dist/mapbox-gl-directions.js && copy src\\mapbox-gl-directions.css dist",
     "test": "SET NODE_ENV=test npm run lint && browserify test/index.js | smokestack -b firefox | tap-status",
     "docs": "documentation build src/directions.js --shallow --format=md > API.md",
     "lint": "eslint --no-eslintrc -c .eslintrc src"
