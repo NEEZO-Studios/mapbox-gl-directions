@@ -35,5 +35,9 @@ See [API.md](https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md) 
 See [CONTRIBUTING.md](https://github.com/mapbox/mapbox-gl-directions/blob/master/CONTRIBUTING.md).
 
 ### Change for Windows build
+
+```javascript
 "build": "SET NODE_ENV=production && md dist && browserify -s MapboxDirections src/index.js > dist/mapbox-gl-directions.js && copy src\\mapbox-gl-directions.css dist"
--- You need to delete the dist folder before running this command or it won't rebuild properly.
+```
+
+You need to delete the dist folder before running this command or it won't rebuild properly.
