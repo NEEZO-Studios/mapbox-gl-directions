@@ -21,9 +21,9 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "start": "NODE_ENV=development budo example/index.js:example/bundle.js --live",
-    "build": "NODE_ENV=production mkdir -p dist && browserify -s MapboxDirections src/index.js > dist/mapbox-gl-directions.js && cp src/mapbox-gl-directions.css dist",
-    "test": "NODE_ENV=test npm run lint && browserify test/index.js | smokestack -b firefox | tap-status",
+    "start": "SET NODE_ENV=development budo example/index.js:example/bundle.js --live",
+    "build": "SET NODE_ENV=production && if exist dist rmdir /s /q dist && md dist && browserify -s MapboxDirections src/index.js > dist/mapbox-gl-directions.js && copy src\\mapbox-gl-directions.css dist",
+    "test": "SET NODE_ENV=test npm run lint && browserify test/index.js | smokestack -b firefox | tap-status",
     "docs": "documentation build src/directions.js --shallow --format=md > API.md",
     "lint": "eslint --no-eslintrc -c .eslintrc src"
   },
@@ -58,7 +58,7 @@
     "insert-css": "^2.0.0",
     "json-loader": "^0.5.7",
     "lodash.once": "^4.0.0",
-    "mapbox-gl": "^3.2.0",
+    "mapbox-gl": "^2.7.21", 
     "smokestack": "^3.6.0",
     "tap-status": "^1.0.1",
     "tape": "^4.6.0",
